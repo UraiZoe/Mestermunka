@@ -1,0 +1,761 @@
+/*Általánosd design*/
+body {
+    background-color: #f5e6d9;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    min-height: 100vh;
+}
+
+body p {font-size: 1.1em;}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+main {flex: 1;}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+div p a {padding-right: 5px;}
+
+
+/*Fejlécek*/
+header {
+    box-shadow: 0 4px 4px #f3e8d7;
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 1%;
+}
+#helpHeader {
+    color: Black;
+    background: linear-gradient(to bottom, white 0%, white 95%, gold 50%); 
+}
+#bottomHeader {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+#bottomHeader p {
+    margin: 0;
+}
+#bottomHeader a {
+    color: rgb(27, 29, 32);
+    text-decoration: none;
+    font-style: italic;
+    font: 1em sans-serif;
+}
+#buttonImage:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+#bottomHeader p:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+header {
+    margin-bottom: 70px;
+}
+.header .d-flex {
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Fő oldal designok*/
+#FirstContentMainPage .btn {
+    width: 250px; 
+}
+#FirstContentMainPage {
+    box-shadow: 0px 0px 2px 4px #f3e8d7;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 2.5s forwards ease-out;
+    transition: transform 0.6s ease; 
+}
+#SecondContentMainPage {
+    box-shadow: 0px 0px 2px 4px #f3e8d7;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 10%;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 2.5s forwards ease-out;
+    transition: transform 0.6s ease; 
+}
+#ThirdContentMainPage {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInScale 2.5s forwards ease-out;
+    transition: transform 0.6s ease; 
+}
+#ThirdContentMainPage .card {
+    border: 3px solid #000 ;
+}
+#ThirdContentMainPage .card {
+    width: 16rem; 
+    transition: transform 0.3s ease; 
+    margin-bottom: 20px;
+}
+#ThirdContentMainPage .card img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+
+/*Posztok animációja*/
+.container .row {
+    animation: fadeInScale 2s forwards ease-out;
+    transition: transform 0.6s ease; 
+}
+
+
+/*Kép design-ok*/
+#buttonImage:hover {
+    transform: scale(1.01); 
+    box-shadow: 0 3px 12px rgba(255, 193, 5, 0.516); 
+}
+#logo {
+    height: 10em;
+    mix-blend-mode: multiply;
+    position: relative;
+    animation: fadeIn 2.5s ease-in-out;
+    z-index: 1;
+}
+#logo:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+#girl {
+    width: 22em;
+    max-height: 100%;
+    background-color: transparent;
+    mix-blend-mode: multiply;
+    border: 4px solid #000 ;
+}
+.profile-img {
+    margin-right: 5%;
+    width: 35px;
+    height: 35px;
+    background-image: url("{{ asset('images/profil.png') }}");
+    background-size: cover;
+    border-radius: 50%;
+    transition: background-image 0.3s ease-in-out;
+}
+.profile-img:hover {
+    background-image: url("{{ asset('images/aProfil.png') }}");
+}
+#postImage {
+    width: 370px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/*Telefonos nézet*/
+@media (max-width: 768px) {
+    /* Alap stílusok */
+    body {
+        font-size: 0.9em;
+        background: linear-gradient(to right, #f5e6d9 200px, #fcf6f0 50%, #f5e6d9 100%);
+    }
+
+    /* Szövegformázás */
+    body p { font-size: 12px; }
+    body h1 { font-size: 20px; }
+    body h2 { font-size: 18px; }
+    body h3 { font-size: 16px; }
+    body h4 { font-size: 15px; }
+    body h5 { font-size: 14px; }
+    body h6 { font-size: 13px; }
+
+    /* Képek */
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .event-image {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    #girl {
+        width: 16em;
+    }
+
+    /* Kereső és menü */
+    #Search {
+        height: 1.5em;
+        width: 1.7em;
+    }
+    #userDropdown {
+        height: 1.5em;
+    }
+
+    img.rounded-circle {
+        width: 55px !important;
+        height: 55px !important;
+        object-fit: cover;
+        border-radius: 50%;
+    }    
+
+    /* Főoldali tartalom */
+    #FirstContentMainPage,
+    #SecondContentMainPage {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    #ThirdContentMainPage .card {
+        width: 14rem;
+    }
+    #ThirdContentMainPage .card img {
+        width: 90%;
+    }
+
+    /* Szalon oldal */
+    #salon-page .salon-image {
+        max-width: 100%;
+    }
+    #salon-page .salon-title {
+        font-size: 1.5rem;
+    }
+    #salon-page .salon-info {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*Vezérlő Gombok a főoldalon*/
+@media (max-width: 576px) {
+    #ThirdContentMainPage .card {
+        padding-top: 20px;
+        width: 12rem;
+        margin-bottom: 15px;
+    }
+    
+    #ThirdContentMainPage .card img {
+        width: 80%;
+    }
+}
+
+
+/*Footer*/
+@media (max-width: 1000px) {
+    footer {
+        display: block;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    #footerLeft, #footerCenter, #footerRight {
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+        display: block;
+    }
+
+    #footerLeft i, #footerRight i {
+        margin-right: 5px;
+    }
+}
+
+
+/*Vonal*/
+hr {
+    border: 1px solid #000;
+    width: 100%;
+}
+
+
+/*Gomb desin-ok*/
+#button:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+    background-color: gold;
+    color: #000;
+}
+.btn-fixed {
+    display: block;
+    width: fit-content; 
+    margin: 0 auto;
+}
+#yellowButtonEye:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+    background-color: #000;
+    color: white;
+}
+#yellowButton:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+    background-color: #000;
+    color: gold;
+}
+
+
+/* Formhoz szükséges elemek*/
+.input-group {
+    display: flex;
+    align-items: center;
+}
+#togglePassword {
+    border-left: none;
+    background-color: transparent;
+}
+
+
+/*Lenyílófej*/
+.dropdown {
+    position: relative;
+    z-index: position 10; ;
+}
+.dropdown img {
+    cursor: pointer;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 4px 4px #f3e8d7;
+    z-index: 1;
+    right: 0;
+    left: auto;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover 
+{
+    transform: scale(1.1);
+    transition: 0.4s;    
+    background-color: gold;
+}
+.dropdown:hover .dropdown-content {
+    background-color: #f9f9f9;
+    display: block;
+}
+
+/*Lábjegyzék*/
+#contact {
+    cursor: pointer;
+}
+#contact:hover {
+    color: #ffbb00;
+}
+
+footer {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    margin-top: 100px;
+    box-shadow: 0 -4px 6px #e4ddd1;
+    gap: 20px;
+}
+
+#footerLeft,
+#footerCenter,
+#footerRight {
+    flex: 1 1 300px; /* min width: 300px, grow if van hely */
+    max-width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Eltávolítjuk a fix paddingeket, ezek elrontják mobilon */
+#footerLeft,
+#footerCenter,
+#footerRight {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Ikonokhoz kis margó */
+#footerRight i,
+#footerLeft i {
+    margin-right: 10px;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+footer ul li a,
+footer ul li {
+    color: black;
+    text-decoration: none;
+}
+
+footer ul li a:hover,
+footer ul li:hover {
+    transform: scale(1.025);
+    transition: 0.3s;
+    color: #ffbb00;
+}
+
+/* Mobil nézet: mindhárom doboz egymás alatt, teljes szélességen */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #footerLeft,
+    #footerCenter,
+    #footerRight {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/*Szalon oldal*/
+#salonChoseOnDonatePage {
+    color:gold;
+}
+#salonChoseOnDonatePage:hover {
+    color:black;
+    transform: scale(1.025);
+    transition: 0.3s; 
+}
+#salon-page .salon-separator {
+    border: 1px solid #eee;
+    margin: 10px 0;
+}
+#salon-page .salon-info {
+    padding: 15px;
+    font-size: 1rem;
+}
+#salon-page .salon-info p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+#salon-page .copy-text {
+    cursor: pointer;
+    color: #ffbb00;
+}
+#salon-page .copy-text:hover {
+    color: #ffbb00;
+}
+.salon-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.salon-image-container {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.salon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #000;
+}
+#salonHeaderUnderline {
+    color: #000;
+}
+.salon-text {
+    margin-top: 35px;
+    flex: 1;
+    min-width: 200px;
+}
+.salon-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.salon-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+/*Rólunk oldal*/
+#aboutAlignCenter {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#aboutAlignLeft {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    text-align: left;         
+    width: 100%;
+}
+
+/*Lapozos galléria a "Rólunk" oldalon.*/
+.gallery {
+    position: relative;
+    width: 50%; 
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    min-width: 100%; 
+    max-width: 60%;
+    box-sizing: border-box;
+    padding: 10px; 
+}
+.slides img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+}
+#prev {
+    left: 0;
+}
+#next {
+    right: 0;
+}
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*Esemény design*/
+#eventTitle {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-family: Brush Script;
+    color: #000000;
+    text-shadow: 0.45px 0.45px #000;
+    animation: fadeIn 1s ease-in-out;
+}
+.event-container {
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+    text-align: left;
+    margin-bottom: 30px;
+}
+.event-image-container {
+    flex-shrink: 0; 
+    width: 150px; 
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.event-text {
+    flex: 1;
+    min-width: 200px;
+}
+.event-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+
+/*Kontetntek (esemény posztoknál)*/
+.topContent {
+    margin-bottom: -20px;
+}
+.bottomContent {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 100%;
+}
+
+
+/*Kártya design*/
+.card-title {
+    word-wrap: break-word;
+    hyphens:auto;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.event-card {
+    animation: fadeInScale 1.5s forwards ease-out;
+}
+
+
+/*Térkép design*/
+.search-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+.map-container {
+    position: relative;
+    height: 300px;
+    padding-bottom: 40%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.responsive-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.form-control {
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/*"Események" (like, részt veszek) */
+.btn-hover:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    background-color: gold;
+    color: black;
+}
+.like-btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    background-color: #000;
+    color: white;
+}
+.participate-btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    background-color: #000;
+    color: gold;
+}
+
+
+/*Linkek*/
+#copyLink:hover {
+    color: #ffbb00;
+    cursor: pointer;
+}
+#registedProfilLink , #notRegistedProfilLink {
+    color: #4d4d4d;
+    display: block; 
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 7px;
+    width: fit-content;
+}
+
+
+/*Gomb esemény (like, résztvevés)*/
+.like-btn, .participate-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.like-btn {
+    background-color: white; 
+    color: black;
+}
+.participate-btn {
+    background-color: #ffbb00;
+    color: white;
+}
+.like-btn:hover, .participate-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Admin felület*/
+#admin-page form{
+    padding-top: 10px;
+    gap: 10px;
+    margin-top: 10px;
+}
+.salonModalPosition {
+    position: absolute;
+    top: 10em;
+    left: 25em;
+}
+.salonCreateModalPosition {
+    position: absolute;
+    top: 40em;
+    left: 25em;
+}
+.eventModalPosition {
+    position: absolute;
+    top: 66em;
+    left: 13em;
+    width: 650px;
+}
+
+
+/*Animációk*/
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
