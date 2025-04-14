@@ -191,7 +191,7 @@
                                         <div class="row">
                                             <hr>
                                             <h3>Szalonok</h3><br>
-                                            <a href="{{ route('admin.createSalonForm') }}" class="btn btn-dark btn-fixed">Új
+                                            <a href="{{ route('admin.createSalonForm') }}" id="button" class="btn btn-dark btn-fixed">Új
                                                 Szalon hozzáadása</a>
                                             <div class="mb-3"></div>
                                             @foreach ($salons as $salon)
@@ -207,9 +207,9 @@
                                                         </div>
                                                         <div class="card-footer text-center">
                                                             <a href="{{ route('salons.show', $salon->id) }}"
-                                                                class="btn btn-dark btn-sm">Továbbiak</a>
+                                                                id="button" class="btn btn-dark btn-sm">Továbbiak</a>
                                                             <a href="{{ route('admin.editSalon', $salon->id) }}"
-                                                                class="btn btn-dark btn-sm">Szerkesztés</a>
+                                                                id="button" class="btn btn-dark btn-sm">Szerkesztés</a>
                                                         </div>
                                                     </div>
                                                 </div>
