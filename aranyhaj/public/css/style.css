@@ -168,7 +168,6 @@ header {
         font-size: 0.9em;
         background-color: #f5e6d9;
     }
-
     /* Szövegformázás */
     body p { font-size: 16px; }
     body h1 { font-size: 22px; }
@@ -202,9 +201,9 @@ header {
     }
 
     img.rounded-circle {
-        width: 55px !important;
-        height: 55px !important;
-        object-fit: cover;
+        width: 55px;
+        height: 55px ;
+        object-fit:scale-down;
         border-radius: 50%;
     }    
 
@@ -231,6 +230,12 @@ header {
     }
     #salon-page .salon-info {
         font-size: 0.9rem;
+    }
+    #Profilkép {
+        width: 155px !important;
+        height: 155px !important;
+        max-width: 155px;
+        max-height: 155px; 
     }
 }
 
