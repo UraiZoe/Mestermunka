@@ -12,9 +12,13 @@ class OwnerController extends Controller
 {
     public function index()
     {
-        $salons = Salon::where('owner_id', Auth::id())->get();
-
-        return view('owner.dashboard', ['salons' => $salons]);
+        $salons = Salon::with(['events' => function ($query) {
+            $query->withCount(['likes', 'participants']);
+        }])->where('owner_id', Auth::id())->get();
+        
+        return view('owner.dashboard', [
+            'salons' => $salons,
+        ]);        
     }
 
     public function createEventPage()
