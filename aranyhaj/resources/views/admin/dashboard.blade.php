@@ -4,8 +4,8 @@
 <!-- Cím adás az oldalnak változó által -->
 
 @section('content')
-<!-- Kontent kiszedés -->
-    
+    <!-- Kontent kiszedés -->
+
     <main id="admin-page">
         <div class="container">
             <div class="row">
@@ -38,7 +38,8 @@
                                             <div class="card h-100 shadow">
                                                 <div class="card-body d-flex flex-column">
                                                     <div class="text-center">
-                                                        <img id="image" class="rounded-circle img-fluid" src="{{ $user->image_name }}" alt="Felhasználó Profilkép" 
+                                                        <img id="image" class="rounded-circle img-fluid"
+                                                            src="{{ $user->image_name }}" alt="Felhasználó Profilkép"
                                                             style="max-width: 155px; max-height: 155px; object-fit: cover; width: 155px; height: 155px; margin: 0 auto;">
                                                     </div>
                                                     <h4 class="card-title">{{ $user->user_name }}</h4>
@@ -64,18 +65,15 @@
                                             </div>
                                         </div>
                                         <!-- Felhasználó admin adás -->
-                                        <di0v class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true"
                                             data-backdrop="false">
                                             <div class="modal-dialog userModalPosition" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="makeAdminModalLabel{{ $user->id }}">
-                                                            Felhasználó adminná tétele</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Bezárás">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                        <h5 class="modal-title mx-auto">Felhasználó adminná tétele</h5>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
                                                     </div>
                                                     <form action="{{ route('admin.makeAdmin', $user->id) }}" method="POST">
                                                         @csrf
@@ -85,22 +83,21 @@
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-dark"
+                                                            <button id="button" type="submit" class="btn btn-dark">Igen, admin lesz</button>
+                                                            <button id="button" type="button" class="btn btn-dark"
                                                                 data-dismiss="modal">Mégsem</button>
-                                                            <button type="submit" class="btn btn-dark">Igen, admin lesz</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
-                                        </di0v>
-
+                                        </div>
                                         <!-- admin jog visszavonás -->
                                         <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog"
                                             data-backdrop="false">
                                             <div class="modal-dialog userModalPosition" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Admin jog visszavonása</h5>
+                                                        <h5 class="modal-title mx-auto">Admin jog visszavonása</h5>
                                                         <button type="button" class="close"
                                                             data-dismiss="modal">&times;</button>
                                                     </div>
@@ -108,14 +105,14 @@
                                                         Biztosan vissza szeretnéd vonni <strong>{{ $user->user_name }}</strong>
                                                         admin jogát?
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <form action="{{ route('admin.removeAdmin', $user->id) }}"
-                                                            method="POST">
+                                                    <div class="modal-footer justify-content-center">
+                                                        <form action="{{ route('admin.removeAdmin', $user->id) }}" method="POST"
+                                                            class="m-0">
                                                             @csrf
-                                                            <button id="button" type="submit"
-                                                                class="btn btn-dark">Visszavonás</button>
+                                                            <button type="submit" id="button"
+                                                                class="btn btn-dark me-2">Visszavonás</button>
                                                         </form>
-                                                        <button id="button" type="button" class="btn btn-dark"
+                                                        <button type="button" id="button" class="btn btn-dark"
                                                             data-dismiss="modal">Mégse</button>
                                                     </div>
                                                 </div>
@@ -127,7 +124,7 @@
                                             <div class="modal-dialog userModalPosition" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Felhasználó adatai</h5>
+                                                        <h5 class="modal-title mx-auto">Felhasználó adatai</h5>
                                                         <button type="button" class="close"
                                                             data-dismiss="modal">&times;</button>
                                                     </div>
@@ -149,37 +146,35 @@
                                                             {{ $user->updated_at->format('Y-m-d H:i') }}</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button id="button" type="button" class="btn btn-dark"
-                                                            data-dismiss="modal">Bezárás</button>
+                                                        <div class="w-100 text-center">
+                                                            <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Bezárás</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- Felhasználó törlése -->
                                         <div class="modal fade" id="deleteUserModal{{ $user->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="deleteUserModalLabel{{ $user->id }}" aria-hidden="true"
                                             data-backdrop="false">
                                             <div class="modal-dialog userModalPosition" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="deleteUserModalLabel{{ $user->id }}">
-                                                            Felhasználó törlése</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Bezárás">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                        <h5 class="modal-title mx-auto">Felhasználó törlése</h5>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>Biztosan törölni szeretnéd <strong>{{ $user->name }}</strong>
                                                             felhasználót?</p>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST">
+                                                    <div class="modal-footer justify-content-center">
+                                                        <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST" class="m-0">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-dark">Igen, törlöm</button>
+                                                            <button type="submit" id="button" class="btn btn-dark me-2">Igen, törlöm</button>
                                                         </form>
-                                                        <button type="button" class="btn btn-dark"
-                                                            data-dismiss="modal">Mégse</button>
+                                                        <button id="button" type="button" class="btn btn-dark" data-dismiss="modal">Mégse</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,7 +186,8 @@
                                         <div class="row">
                                             <hr>
                                             <h3>Szalonok</h3><br>
-                                            <a href="{{ route('admin.createSalonForm') }}" id="button" class="btn btn-dark btn-fixed">Új
+                                            <a href="{{ route('admin.createSalonForm') }}" id="button"
+                                                class="btn btn-dark btn-fixed">Új
                                                 Szalon hozzáadása</a>
                                             <div class="mb-3"></div>
                                             @foreach ($salons as $salon)
@@ -206,10 +202,10 @@
                                                                 {{ $salon->location }}</p>
                                                         </div>
                                                         <div class="card-footer text-center">
-                                                            <a href="{{ route('salons.show', $salon->id) }}"
-                                                                id="button" class="btn btn-dark btn-sm">Továbbiak</a>
-                                                            <a href="{{ route('admin.editSalon', $salon->id) }}"
-                                                                id="button" class="btn btn-dark btn-sm">Szerkesztés</a>
+                                                            <a href="{{ route('salons.show', $salon->id) }}" id="button"
+                                                                class="btn btn-dark btn-sm">Továbbiak</a>
+                                                            <a href="{{ route('admin.editSalon', $salon->id) }}" id="button"
+                                                                class="btn btn-dark btn-sm">Szerkesztés</a>
                                                         </div>
                                                     </div>
                                                 </div>
