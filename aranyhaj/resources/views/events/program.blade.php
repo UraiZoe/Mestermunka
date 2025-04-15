@@ -84,25 +84,19 @@
 </main><br>
 
 <script>
-    function formatAddress(address) {
-        return address.replace(/\s+/g, "+"); 
-    }
-
-    // Ensure the location is a valid string
-    let address = {!! json_encode($event->location) !!};
-    let formattedAddress = formatAddress(address);
-    console.log(formattedAddress); // Debugging
-
-    // Set the Google Maps iframe source dynamically
-    document.getElementById("mapFrame").src = `https://www.google.com/maps?q=${formattedAddress}&output=embed`;
-
     function copyText(element) {
         const location = element.getAttribute('data-location');
         const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
+        // A térkép linket másolja 
         navigator.clipboard.writeText(mapUrl)
-            .then(() => alert('Lemmentetted ezt a helyszínt: ' + mapUrl))
-            .catch(error => alert('Nem sikerült lementened: ' + error));
+            .then(() => {
+                alert('Lementetted ezt a helyszínt:\n' + location);
+            })
+            .catch(err => {
+                console.error('Nem sikerült a másolás:', err);
+                alert('Nem sikerült lementeni a helyszínt.');
+            });
     }
 </script>
 

@@ -127,9 +127,18 @@
     });
 
     function copyText(element) {
-        const location = element.getAttribute('data-location');
-        const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
-        alert('Lemmentetted ezt a helyszínt: ' + location + '\n url ként!');
-    }
-</script>
+            const location = element.getAttribute('data-location');
+            const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
+
+            // A térkép linket másolja 
+            navigator.clipboard.writeText(mapUrl)
+                .then(() => {
+                    alert('Lementetted ezt a helyszínt:\n' + location);
+                })
+                .catch(err => {
+                    console.error('Nem sikerült a másolás:', err);
+                    alert('Nem sikerült lementeni a helyszínt.');
+                });
+        }
+        </script>
 @endsection

@@ -12,31 +12,34 @@
         <div class="container">
             <div class="row">
                 @foreach ($salons as $salon)
-                            <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
-                                <div class="card h-100 shadow">
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title text-center">{{ $salon->salon_name }}</h5>
-                                        <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép"
-                                            class="img-fluid rounded my-3 d-block mx-auto">
-                                        <p class="card-text text-center">{{ $salon->short_information }}</p>
-                                        <div class="mt-auto">
-                                            <p class="card-text">
-                                                <strong>Szalon helye:</strong>
-                                                <a id="copyLink" class="copy-text" onclick="copyText(this)"
-                                                    data-location="{{ $salon->location }}">
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
+                            <div class="card h-100 shadow">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-center">{{ $salon->salon_name }}</h5>
+                                    <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép"
+                                        class="img-fluid rounded my-3 d-block mx-auto">
+                                    <p class="card-text text-center">{{ $salon->short_information }}</p>
+                                    <div class="mt-auto">
+                                        <p class="card-text">
+                                            <strong>Szalon helye:</strong>
+                                            <a id="copyLink" class="copy-text" onclick="copyText(this)"
+                                                data-location="{{ $salon->location }}">
+                                                @if($salon->location && strlen($salon->location) > 30)
                                                     @php
-                                                        $location = $salon->location;
-                                                        $words = explode(' ', $location); // Szavakra bontjuk
-                                                        $shortenedLocation = implode(' ', array_slice($words, 0, 2));
+                                                        $words = explode(' ', $salon->location);
+                                                        $shortenedLocation = implode(' ', array_slice($words, 0, 2)) . '...';
                                                     @endphp
-                                                    {{ $shortenedLocation }}...
-                                                </a>
-                                            </p>
-                                        </div>
-                                        <a id="button" href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark">Továbbiak</a>
+                                                        {{ $shortenedLocation }}
+                                                @else
+                                                    {{ $salon->location }}
+                                                @endif
+                                            </a>
+                                        </p>
                                     </div>
+                                    <a id="button" href="{{ route('salons.show', $salon->id) }}" class="btn btn-dark">Továbbiak</a>
                                 </div>
                             </div>
+                        </div>
                 @endforeach
             </div>
         </div>
@@ -78,17 +81,20 @@
                 searchInput.addEventListener("input", filterSalons);
             });
 
-            // Szalon helyének másolása
-            function copyText(element) {
-                const location = element.getAttribute('data-location');
+        function copyText(element) {
+            const location = element.getAttribute('data-location');
+            const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
-                // URL kódolás JavaScript-ben
-                const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
-
-                // A felhasználó számára kiírjuk a helyszínt, és adunk egy linket a térképre
-                alert('Lemmentetted ezt a helyszínt: ' + location + '\n url ként!');
-            }
-
+            // A térkép linket másolja 
+            navigator.clipboard.writeText(mapUrl)
+                .then(() => {
+                    alert('Lementetted ezt a helyszínt:\n' + location);
+                })
+                .catch(err => {
+                    console.error('Nem sikerült a másolás:', err);
+                    alert('Nem sikerült lementeni a helyszínt.');
+                });
+        }
         </script>
     </main><br>
 @endsection
