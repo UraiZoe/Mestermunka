@@ -200,10 +200,10 @@ header {
         height: 1.5em;
     }
 
-    img.rounded-circle {
-        width: 55px;
-        height: 55px ;
-        object-fit:scale-down;
+    #userDropdown.rounded-circle {
+        width: 35px;
+        height: 35px ;
+        object-fit:cover;
         border-radius: 50%;
     }    
 
