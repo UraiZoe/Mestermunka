@@ -170,13 +170,14 @@ header {
     }
 
     /* Szövegformázás */
-    body p { font-size: 12px; }
-    body h1 { font-size: 20px; }
-    body h2 { font-size: 18px; }
-    body h3 { font-size: 16px; }
-    body h4 { font-size: 15px; }
-    body h5 { font-size: 14px; }
-    body h6 { font-size: 13px; }
+    body p { font-size: 16px; }
+    body h1 { font-size: 22px; }
+    body h2 { font-size: 20px; }
+    body h3 { font-size: 19px; }
+    body h4 { font-size: 18px; }
+    body h5 { font-size: 17px; }
+    body h6 { font-size: 16px; }
+    #contact {font-size: 16px;}
 
     /* Képek */
     img {
