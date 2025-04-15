@@ -64,7 +64,7 @@
                                             </div>
                                         </div>
                                         <!-- Felhasználó admin adás -->
-                                        <div class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog"
+                                        <di0v class="modal fade" id="makeAdminModal{{ $user->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="makeAdminModalLabel{{ $user->id }}" aria-hidden="true"
                                             data-backdrop="false">
                                             <div class="modal-dialog userModalPosition" role="document">
@@ -92,7 +92,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </di0v>
 
                                         <!-- admin jog visszavonás -->
                                         <div class="modal fade" id="removeAdminModal{{ $user->id }}" tabindex="-1" role="dialog"
