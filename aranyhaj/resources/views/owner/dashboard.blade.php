@@ -41,9 +41,9 @@
                                                     </div>
                                                     <div class="card-footer text-center">
                                                         <a href="{{ route('salons.show', $salon->id) }}"
-                                                            class="btn btn-dark btn-sm">Továbbiak</a>
+                                                           id="button" class="btn btn-dark btn-sm">Továbbiak</a>
                                                         <a href="{{ route('owner.editSalon', $salon->id) }}"
-                                                            class="btn btn-dark btn-sm">Szerkesztés</a>
+                                                          id="button"  class="btn btn-dark btn-sm">Szerkesztés</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,14 +87,16 @@
                                                             <div class="d-flex justify-content-between align-items-center">
                                                                 <a href="{{ route('events.show', $event->id) }}"
                                                                     class="btn btn-dark btn-hover">Továbbiak</a>
-                                                                <p class="card-text mb-0 ms-3">
-                                                                    <strong>Résztvevők:</strong>
-                                                                    <a href="">{{ $event->participants_count ?? 0 }}</a>
-                                                                </p>
-                                                                <p class="card-text mb-0 ms-3">
-                                                                    <strong>Likok:</strong>
-                                                                    <a href="">{{ $event->likes_count ?? 0}}</a>
-                                                                </p>
+                                                                    <p class="card-text mb-0 ms-3">
+                                                                        <strong>Résztvevők:</strong>
+                                                                        <a href="" class="participants-count"
+                                                                            data-event-id="{{ $event->id }}">{{ $event->participants_count ?? 0 }}</a>
+                                                                    </p>
+                                                                    <p class="card-text mb-0 ms-3">
+                                                                        <strong>Likok:</strong>
+                                                                        <a href="" class="like-count"
+                                                                            data-event-id="{{ $event->id }}">{{ $event->likes_count ?? 0 }}</a>
+                                                                    </p>
                                                             </div>
                                                         </div>
 
