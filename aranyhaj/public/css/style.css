@@ -1,6 +1,6 @@
 /*Általánosd design*/
 body {
-    background-color: #f5e6d9;
+    background: linear-gradient(to right, #f5e6d9 200px, #fcf6f0 50%, #f5e6d9 100%);
     font-family: Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
@@ -166,7 +166,7 @@ header {
     /* Alap stílusok */
     body {
         font-size: 0.9em;
-        background: linear-gradient(to right, #f5e6d9 200px, #fcf6f0 50%, #f5e6d9 100%);
+        background-color: #f5e6d9;
     }
 
     /* Szövegformázás */
