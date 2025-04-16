@@ -85,19 +85,33 @@
 
 <script>
     function copyText(element) {
-        const location = element.getAttribute('data-location');
-        const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
+            const location = element.getAttribute('data-location');
+            const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
-        // A térkép linket másolja 
-        navigator.clipboard.writeText(mapUrl)
-            .then(() => {
-                alert('Lementetted ezt a helyszínt:\n' + location);
-            })
-            .catch(err => {
-                console.error('Nem sikerült a másolás:', err);
-                alert('Nem sikerült lementeni a helyszínt.');
-            });
-    }
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(mapUrl)
+                    .then(() => {
+                        alert('Lementetted ezt a helyszínt:\n' + location);
+                    })
+                    .catch(err => {
+                        console.error('Nem sikerült a másolás:', err);
+                        alert('Nem sikerült lementeni a helyszínt.');
+                    });
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = mapUrl;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('Lementetted ezt a helyszínt:\n' + location);
+                } catch (err) {
+                    console.error('Nem sikerült a másolás:', err);
+                    alert('Nem sikerült lementeni a helyszínt.');
+                }
+                document.body.removeChild(textarea);
+            }
+        }
 </script>
 
 @endsection
