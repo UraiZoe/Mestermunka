@@ -84,20 +84,31 @@
 </main><br>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mapFrame = document.getElementById("mapFrame");
+        const location = @json($event->location); // Laravel változó JS-ben
+
+        if (mapFrame && location) {
+            const mapUrl = "https://www.google.com/maps?q=" + encodeURIComponent(location) + "&output=embed";
+            mapFrame.src = mapUrl;
+            console.log("Térkép URL beállítva:", mapUrl);
+        } else {
+            console.warn("Térkép betöltés sikertelen.");
+        }
+    });
+
     function copyText(element) {
         const location = element.getAttribute('data-location');
         const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);
 
-        // A térkép linket másolja 
         navigator.clipboard.writeText(mapUrl)
             .then(() => {
                 alert('Lementetted ezt a helyszínt:\n' + location);
             })
             .catch(err => {
-                console.error('Nem sikerült a másolás:', err);
+                console.error('Másolás sikertelen:', err);
                 alert('Nem sikerült lementeni a helyszínt.');
             });
     }
 </script>
-
 @endsection
