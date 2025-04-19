@@ -8,7 +8,7 @@
     <!-- Kontent kiszedés -->
 
     <main>
-        <!-- Első "kártya" a fő menüben gombbal. Leírás, hogy miért jó hajat adományozni.-->
+        <!-- Első leírás "Adományozok gombbal"-->
         <div id="FirstContentMainPage" class="card px-3 px-md-5 mt-5 mx-auto" style="max-width: 90%;">
             <h3><b>Adj reményt egy kis szeretettel! </b></h3><br>
             <p style="max-width: 85%;">Üdvözlünk a hajadományozás közösségében! A platform célja, hogy összekössük azokat,
@@ -19,7 +19,7 @@
             <a id="button" href="/donate" class="btn btn-dark d-block mx-auto">Adományozni szeretnék</a>
         </div>
 
-        <!-- Második "kártya" a fő menüben képpel. Válaszok kérdésekkre a kontexusa a szövegnek.-->
+        <!-- Második Leírás Képpel-->
         <div id="SecondContentMainPage" class="card px-3 px-md-5 mt-5 mb-5 mx-auto" style="max-width: 90%;">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -40,6 +40,7 @@
             </div>
         </div>
 
+        <!-- Menüpont az oldalak között(Adományozok, Szalonok, Események) -->
         <div id="ThirdContentMainPage" class="d-flex justify-content-center gap-4 flex-wrap">
             <div id="buttonImage" class="card text-center">
                 <a href="/events">

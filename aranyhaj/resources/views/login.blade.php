@@ -7,9 +7,10 @@
     <h2 class="text-center">Bejelentkezés</h2>
     <div class="container d-flex justify-content-center">
         <div class="col-12 col-md-6 col-lg-4">
-            <!-- Card kezdete -->
+            <!-- Kártya kezdete -->
             <div class="card shadow-lg text-white">
                 <div class="card-body text-black" id="logCards">
+                    <!-- Hiba üzenetek kezelése-->
                     @if(Session::has('error'))
                         <div class="alert alert-danger" role="alert">
                             {{ Session::get('error') }}
@@ -17,6 +18,7 @@
                     @endif
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
+                        <!-- Bejelentkezés Formok-->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email cím</label>
                             <input type="email" name="email" class="form-control" id="email"
@@ -25,6 +27,7 @@
                                 Az email címnek nem megfelelő.
                             </small>
                         </div>
+
                         <div class="mb-3">
                             <label for="password" class="form-label">Jelszó</label>
                             <div class="input-group">
@@ -38,6 +41,7 @@
                                 A jelszónak legalább 8 karakterből kell állnia!
                             </small>
                         </div>
+                        <!-- Elküldő gomb -->
                         <div class="mb-2">
                             <div class="d-grid mt-4">
                                 <button id="button" class="btn btn-dark">Bejelentkezés</button>
@@ -58,6 +62,7 @@
             const passwordError = document.getElementById("passwordError");
             const togglePassword = document.getElementById("yellowButtonEye");
 
+            //Emailcím helyességét figyeli és, ha nem megfelelő akkor ezt közli a felhasználóval (, ha hiányzik a "@")
             emailField.addEventListener("input", function () {
                 if (!emailField.value.includes("@")) {
                     emailError.style.display = "block";
@@ -66,6 +71,7 @@
                 }
             });
 
+            //Jelszó helyességét figyeli és, ha nem helyes akkor ezt közli a felhasználóval (, ha kevesebb mint, 8 karakter)
             passwordField.addEventListener("input", function () {
                 if (passwordField.value.length < 8) {
                     passwordError.style.display = "block";
@@ -74,6 +80,7 @@
                 }
             });
 
+            //Icon rá nyomásakor láthatónak teszi a felhasználónak a jelszót, és vissza
             togglePassword.addEventListener("click", function () {
                 const type = passwordField.type === "password" ? "text" : "password";
                 passwordField.type = type;

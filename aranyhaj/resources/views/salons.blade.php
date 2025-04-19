@@ -6,19 +6,25 @@
 
     <main>
         <h1 id="eventTitle" class="text-center">Szalonok</h1>
+        <!-- Kereső-->
         <div class="search-container text-center">
             <input type="text" id="search" class="form-control" placeholder="Keresés szalon név vagy város alapján..."><br>
         </div>
+        <!--Szalonok kiiratása-->
         <div class="container">
             <div class="row">
                 @foreach ($salons as $salon)
                         <div class="col-12 col-md-6 col-lg-4 mb-4 salon-card">
                             <div class="card h-100 shadow">
                                 <div class="card-body d-flex flex-column">
+                                    <!--Szalon neve-->
                                     <h5 class="card-title text-center">{{ $salon->salon_name }}</h5>
+                                    <!-- Szalon képee-->
                                     <img id="postImage" src="{{ $salon->image_name }}" alt="Szalon Kép"
                                         class="img-fluid rounded my-3 d-block mx-auto">
+                                    <!--Rövíd leírás -->
                                     <p class="card-text text-center">{{ $salon->short_information }}</p>
+                                    <!-- Szalon helye-->
                                     <div class="mt-auto">
                                         <p class="card-text">
                                             <strong>Szalon helye:</strong>
@@ -43,6 +49,7 @@
                 @endforeach
             </div>
         </div>
+        <!--Nincs találat a keresőbe akkor-->
         <div id="no-results" style="display: none; text-align: center;">
             Nincs ilyen találat.
         </div>
@@ -80,7 +87,7 @@
                 // Keresés esemény figyelése
                 searchInput.addEventListener("input", filterSalons);
             });
-
+        //Cím másolása
         function copyText(element) {
             const location = element.getAttribute('data-location');
             const mapUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(location);

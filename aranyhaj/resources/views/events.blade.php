@@ -6,24 +6,28 @@
 
 <main>
     <h1 id="eventTitle" class="text-center">Események</h1>
+    <!--Kereső-->
     <div class="search-container text-center">
         <input type="text" id="search" class="form-control" placeholder="Keresés esemény név vagy helyszín alapján...">
     </div>
-    
+    <!-- Kerső mező eredménye -->
     <div class="container">
         <div id="no-results" class="text-center" style="display: none;">
             Nincs találat!
         </div>
 
+        <!-- Események-->
         <div class="row">
             @foreach ($events as $event)
                 <div class="col-12 col-md-6 col-lg-4 mb-4 event-card">
                     <div class="card h-100 shadow">
                         <div class="card-body d-flex flex-column">
                             <div class="row">
+                                <!--Esemény címe-->
                                 <div class="col-6">
                                     <h5 class="card-title text-center">{{ $event->title }}</h5>
                                 </div>
+                                <!--Időpont-->
                                 <div class="col-6 text-end">
                                     <p class="mb-0">
                                         <strong>Időpont:</strong> 
@@ -33,10 +37,13 @@
                                 </div>
                             </div>
 
+                            <!--Esemény képe-->
                             <img id="postImage" src="{{ asset($event->image_name) }}" alt="Event Image" class="img-fluid rounded my-3 d-block mx-auto">
 
+                            <!--Leírás-->
                             <p class="text-center">{{ $event->short_information }}</p>
                             <div class="col-md-8 mb-1">
+                                <!--Helyszín-->
                                 <p><strong>Helyszín:</strong>
                                 <a id="copyLink" class="copy-text tooltip-trigger" onclick="copyText(this)" data-location="{{ $event->location }}">
                                     @if($event->location && strlen($event->location) > 30)
@@ -52,6 +59,7 @@
                                 </p>   
                             </div>
 
+                            <!--Résztvevők-->
                             <div id="topContent" class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('events.show', $event->id) }}" class="btn btn-dark btn-hover">Továbbiak</a>
                                 <p class="card-text mb-0 ms-3">

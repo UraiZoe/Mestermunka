@@ -10,7 +10,7 @@
     <main>
         <div class="card" style="max-width: 1200px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
             <div id="aboutAlignCenter">
-
+                <!--Galléria -->
                 <div class="gallery">
                     <div class="slides">
                         <div class="slide"><img src="{{ asset('images/kep1.png') }}" alt="Image 1"></div>
@@ -53,12 +53,14 @@
                     });
                 </script>
                 <hr>
+                <!--Első Szövegdoboz -->
                 <div id="aboutText">
                     <p style="max-width:900px">Mi, azért hoztuk létre ezt az oldalt, mert hiszünk abban, hogy közösen nagy
                         dolgokat érhetünk el. Az adománygyűjtés számunkra nemcsak egy lehetőség, hanem egy küldetés, amely segít
                         jobbá tenni a világot.</p>
                 </div> <br>
-
+                
+                <!-- Másoidik Szövegdoboz-->
                 <div id="aboutAlignLeft">
                     <p><b> Hogyan segíthetsz? </b></p>
                     <ul>
@@ -68,7 +70,6 @@
                         <li>Támogasd kezdeményezésünket</li>
                     </ul>
                 </div>
-
                 <div id="aboutAlignCenter">
                     <p><b>Lépj velünk kapcsolatba,</b> Ha szeretnél többet megtudni rólunk vagy támogatni a munkánkat, ne habozz
                         írni nekünk!</p>
@@ -76,6 +77,5 @@
             </div>
         </div>
     </main>
-
 @endsection
 <!-- Lezárás -->

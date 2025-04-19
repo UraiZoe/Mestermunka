@@ -12,6 +12,7 @@
                         <div class="card-body text-center">
                             <h1 class="text-center my-4">Szalontulajdonos Felület</h1>
                             <hr>
+                            <!--Hiba üzenetek-->
                             @if(session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
@@ -25,6 +26,7 @@
                                         @endforeach
                                     </ul>
                             @endif
+                            <!--Szalonok kiiratása-->
                                 <h4 class="text-center my-4">A Te Szalonjaid:</h4>
                                 <div class="container">
                                     <div class="row">
@@ -51,8 +53,12 @@
                                     </div>
                                 </div><br>
                                 <hr>
+
+                                <!--Esemény létrehozása-->
                                 <a href="{{ route('owner.createEvent') }}" id="button"
                                     class="btn text-center btn-fixed btn-dark mt-2">Új esemény létrehozása</a><br>
+
+                                <!--Szalonokhoz tartozó Események-->
                                 <h4>Szalonhoz tartozó események:</h4>
                                 @foreach ($salons as $salon)
                                     <h5>{{ $salon->salon_name }} - Események:</h5>
@@ -77,6 +83,7 @@
                                                             <img src="{{ asset($event->image_name) }}" alt="Event Image"
                                                                 class="img-fluid rounded my-3">
                                                             <p class="text-center">{{ $event->short_information }}</p>
+                                                            
                                                             <div class="col-md-8 mb-1">
                                                                 <p><strong>Helyszín:</strong>
                                                                     <a class="copy-text" onclick="copyText(this)" id="copyLink"
@@ -84,6 +91,7 @@
                                                                     </a>
                                                                 </p>
                                                             </div>
+
                                                             <div class="d-flex justify-content-between align-items-center">
                                                                 <a href="{{ route('events.show', $event->id) }}"
                                                                     class="btn btn-dark btn-hover">Továbbiak</a>
@@ -108,6 +116,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            <!--Ha a szalonnak nincs eseménye-->
                                             @empty
                                                 <h5><b>Nincsenek események.</b></h5>
                                             @endforelse

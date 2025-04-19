@@ -38,9 +38,9 @@
                     @endif
                 </p>
                 <p><strong>Email cím:</strong> {{ Auth::user()->email }}</p>
-
                 <p><strong>Lakcím:</strong> {{ Auth::user()->address }}</p><br>
 
+                <!--Gombok-->
                 <button id="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#EmailAddressModal">
                     Email cím módosítása
                 </button><br>
@@ -51,6 +51,7 @@
                     Jelszó módosítása
                 </button>
             </div>
+        <!--Ha nincs bejelentkezve-->
         @else
             <div class="text-center">
                 <h2>Bejelentkezés szükséges</h2>
@@ -83,6 +84,7 @@
             </div>
         </div>
     </div>
+
     <!-- Email cím módosító Modal -->
     <div class="modal fade" id="EmailAddressModal" tabindex="-1" aria-labelledby="EmailAddressModalLabel"
         aria-hidden="true">
@@ -107,6 +109,7 @@
             </div>
         </div>
     </div>
+
     <!-- Lakcím módosító Modal -->
     <div class="modal fade" id="AddressModal" tabindex="-1" aria-labelledby="AddressModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -130,6 +133,7 @@
             </div>
         </div>
     </div>
+
     <!-- Jelszó módosító Modal -->
     <div class="modal fade" id="PasswordModal" tabindex="-1" aria-labelledby="PasswordModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -160,6 +164,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         document.getElementById("openModalBtn").addEventListener("click", function () {
             var myModal = new bootstrap.Modal(document.getElementById("profilePictureModal"));

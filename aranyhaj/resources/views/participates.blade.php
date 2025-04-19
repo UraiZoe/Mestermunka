@@ -7,49 +7,55 @@
     <main class="container py-4">
         <h1 id="eventTitle" class="text-center mb-4">Részt vett események</h1>
 
+        <!--Kereső-->
         <div class="search-container text-center mb-4">
             <input type="text" id="search" class="form-control" placeholder="Keresés esemény név vagy helyszín alapján...">
         </div>
-
+        <!-- Ha nincs találat -->
         <div id="no-results" class="text-center text-muted" style="display: none;">
             Nincs találat!
         </div>
 
+        <!-- Események-->
         <div class="row">
             @foreach ($events as $event)
                 <div class="col-12 col-md-6 col-lg-4 mb-4 event-card">
                     <div class="card h-100 shadow">
                         <div class="card-body d-flex flex-column">
                             <div class="row">
+                                <!--Esemény címe-->
                                 <div class="col-6">
                                     <h5 class="card-title text-center">{{ $event->event->title }}</h5>
                                 </div>
+                                <!-- Időpontja-->
                                 <div class="col-6 text-end">
                                     <p class="mb-0">
                                         <strong>Időpont:</strong>
                                         <span
-                                            class="date">{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d') }}</span>
+                                            class="date">{{ \Carbon\Carbon::parse($event->starts_at)->format('Y-m-d') }}
+                                        </span>
                                         <span class="time">{{ \Carbon\Carbon::parse($event->starts_at)->format('H:i') }}</span>
                                     </p>
                                 </div>
                             </div>
 
-
+                            <!-- Esemény képe-->
                             <img src="{{ asset($event->event->image_name) }}" alt="Event Image" class="card-img-top">
+                            <!--Leírása-->
                             <p class="text-center">{{ $event->event->short_information }}</p>
-
+                            <!--Helyszíne-->
                             <p><strong>Helyszín:</strong>
                                 <a class="copy-text" onclick="copyText(this)" data-location="{{ $event->event->location }}">
                                     {{ Str::limit($event->event->location, 30) }}
                                 </a>
                             </p>
-
+                            <!--Résztvevők száma-->
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <a href="{{ route('events.show', $event->event->id) }}" class="btn btn-dark">Továbbiak</a>
                                 <span><strong>Résztvevők:</strong> {{ $event->event->participants->count() }}</span>
                             </div>
                         </div>
-
+                        <!-- Résztveszek gomb és Like-olás gomb-->
                         <div class="card-footer d-flex justify-content-between">
                             @if($event->userHasParticipated)
                                 <form action="{{ route('event.participate') }}" method="POST">
@@ -83,6 +89,7 @@
     </main>
 
     <script>
+        // Kereső
         document.addEventListener("DOMContentLoaded", function () {
             const searchInput = document.getElementById("search");
             const cards = document.querySelectorAll(".card");
@@ -103,7 +110,8 @@
                 noResultsDiv.style.display = hasResults ? "none" : "block";
             });
         });
-
+        
+        //Másolás
         function copyText(element) {
             const location = element.getAttribute("data-location");
             navigator.clipboard.writeText(location).then(() => {

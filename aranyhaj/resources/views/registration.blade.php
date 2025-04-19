@@ -4,12 +4,14 @@
 
 @section("content")
 
+    <!--Regisztráció -->
     <h2 class="text-center">Regisztráció</h2>
     <div class="container d-flex justify-content-center">
         <div class="col-12 col-md-6 col-lg-4">
-            <!-- Card kezdete -->
+            <!-- Kártya kezdete -->
             <div class="card shadow-lg text-white">
                 <div class="card-body text-black" id="logCards">
+                    <!-- Hiba kezelés-->
                     @if(Session::has('success'))
                         <div class="alert alert-success" role="alert">
                             {{ Session::get('success') }}
@@ -26,6 +28,7 @@
                     @endif
                     <form action="{{ route('register') }}" method="POST" id="registrationForm">
                         @csrf
+                        <!--Regisztrációs Form -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Felhasználónév</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Felhasználónév"
@@ -109,6 +112,7 @@
                 }
             });
 
+            //Jelszó megteintése/ eltüntetése, Icon gomb rányomásakor
             togglePassword.addEventListener("click", function () {
                 const type = passwordField.type === "password" ? "text" : "password";
                 passwordField.type = type;

@@ -10,7 +10,7 @@
     <main>
         <div class="container">
             <div class="row justify-content-center text-center flex-column flex-sm-row flex-md-row flex-lg-row">
-                <!-- First Card: Adományozás menete -->
+                <!--  Adományozás menete -->
                 <div class="col-12 mb-4">
                     <div class="card w-100">
                         <div class="card-body">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <!-- Second Card: További információ -->
+                <!--További információ -->
                 <div class="col-12 mb-4">
                     <div class="card w-100">
                         <div class="card-body">
