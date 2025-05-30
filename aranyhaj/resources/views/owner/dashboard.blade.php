@@ -101,7 +101,7 @@
                                                                             data-event-id="{{ $event->id }}">{{ $event->participants_count ?? 0 }}</a>
                                                                     </p>
                                                                     <p class="card-text mb-0 ms-3">
-                                                                        <strong>Likok:</strong>
+                                                                        <strong>Like-ok:</strong>
                                                                         <a href="" class="like-count"
                                                                             data-event-id="{{ $event->id }}">{{ $event->likes_count ?? 0 }}</a>
                                                                     </p>
